@@ -36,7 +36,7 @@ Things you may want to cover:
 | first_name_kana | string | null: false |
 | last_name_kana  | string | null: false |
 | email           | string | null: false |
-| birth_date      | string | null: false |
+| date            | string | null: false |
 | password        | string | null: false |
 
 
@@ -48,19 +48,20 @@ Things you may want to cover:
 
 ## itemsテーブル
 
-| Colum    | Type   | Options     |
-| -------- | ------ | ----------- |
-| user     | string | null: false |
-| name     | string | null: false | 
-| postage  | string | null: false |
-| area     | string | null: false |
-| category | string | null: false | 
-| status   | string | null: false |
+| Colum    | Type      | Options     |
+| -------- | --------- | ----------- |
+| user     | reference | null: false |
+| name     | string    | null: false | 
+| postage  | string    | null: false |
+| area     | string    | null: false |
+| category | string    | null: false | 
+| status   | string    | null: false |
+| price    | string    | null:false  |
 
 ### Association
 
-- has_many :address
 - has_many :address, through: users
+- belongs_to :images
 
 ## imagesテーブル
 | Colum     | Type   | Options     |
@@ -76,11 +77,12 @@ Things you may want to cover:
 
 | Colum         | Type    | Options     |
 | ------------- | ------- | ----------- |
-| post_code     | integer | null: false |
+| post_code     | string  | null: false |
 | city          | string  | null: false | 
-| prefecture    | string  | null: false |
+| genre_id      | integer | null: false |
 | building_name | string  | null: false |
-| phone_number  | integer | null: false |
+| phone_number  | string  | null: false |
+| address       | string  | null: false |
 
 ### Association
 
@@ -88,9 +90,9 @@ Things you may want to cover:
 
 ## purchasesテーブル
 
-| Colum   | Type   | Options     |
-| ------- | ------ | ----------- | 
-| item    | string | null: false | 
+| Colum   | Type   | Options                        |
+| ------- | ------ | ------------------------------ | 
+| item    | string | null: false, foreign_key: true | 
 
 ### Association
 
