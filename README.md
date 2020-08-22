@@ -63,6 +63,7 @@ Things you may want to cover:
 
 - has_many :address, through: users
 - belongs_to :images
+- has_many :users
 
 ## imagesテーブル
 | Colum     | Type   | Options     |
@@ -87,7 +88,7 @@ Things you may want to cover:
 | purchase      | references  | null; false,foreign_key: true |
 
 ### Association
-- belongs_to :purchases
+- belongs_to :purchase
 
 ## purchasesテーブル
 
@@ -99,6 +100,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :users
-- has_many :address, through: items
+- belongs_to :items
+- has_one :address
 
 
