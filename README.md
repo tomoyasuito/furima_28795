@@ -36,7 +36,7 @@ Things you may want to cover:
 | first_name_kana | string | null: false |
 | last_name_kana  | string | null: false |
 | email           | string | null: false |
-| date            | string | null: false |
+| date            | date   | null: false |
 | password        | string | null: false |
 
 
@@ -48,15 +48,15 @@ Things you may want to cover:
 
 ## itemsテーブル
 
-| Colum    | Type      | Options     |
-| -------- | --------- | ----------- |
-| user     | reference | null: false |
-| name     | string    | null: false | 
-| postage  | string    | null: false |
-| area     | string    | null: false |
-| category | string    | null: false | 
-| status   | string    | null: false |
-| price    | string    | null:false  |
+| Colum    | Type      | Options                        |
+| -------- | --------- | ------------------------------ |
+| user     | reference | null: false, foreign_key: true |
+| name     | string    | null: false                    | 
+| postage  | string    | null: false                    |
+| area     | string    | null: false                    | 
+| category | string    | null: false                    | 
+| status   | string    | null: false                    |
+| price    | string    | null:false                     |
 
 ### Association
 
@@ -75,14 +75,15 @@ Things you may want to cover:
 
 ## addressテーブル
 
-| Colum         | Type    | Options     |
-| ------------- | ------- | ----------- |
-| post_code     | string  | null: false |
-| city          | string  | null: false | 
-| genre_id      | integer | null: false |
-| building_name | string  | null: false |
-| phone_number  | string  | null: false |
-| address       | string  | null: false |
+| Colum         | Type    | Options                       |
+| ------------- | ------- | ----------------------------- |
+| post_code     | string  | null: false                   |
+| city          | string  | null: false                   |  
+| genre_id      | integer | null: false                   |
+| building_name | string  | null: false                   |
+| phone_number  | string  | null: false                   |
+| address       | string  | null: false                   |
+| purchases     | string  | null; false,foreign_key: true |
 
 ### Association
 
@@ -93,6 +94,7 @@ Things you may want to cover:
 | Colum   | Type   | Options                        |
 | ------- | ------ | ------------------------------ | 
 | item    | string | null: false, foreign_key: true | 
+| user    | string | null: false, foreign_key: true |
 
 ### Association
 
