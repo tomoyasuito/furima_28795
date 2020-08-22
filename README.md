@@ -48,15 +48,16 @@ Things you may want to cover:
 
 ## itemsテーブル
 
-| Colum    | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| user     | reference  | null: false, foreign_key: true |
-| name     | string     | null: false                    | 
-| postage  | integer    | null: false                    |
-| area     | integer    | null: false                    | 
-| category | integer    | null: false                    | 
-| status   | integer    | null: false                    |
-| price    | integer    | null:false                     |
+| Colum            | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| user             | references | null: false, foreign_key: true |
+| name             | string     | null: false                    | 
+| postage          | integer    | null: false                    |
+| area             | integer    | null: false                    | 
+| category         | integer    | null: false                    | 
+| status           | integer    | null: false                    |
+| price            | integer    | null: false                    |
+| shipping_charges | integer    | null: false                    |
 
 ### Association
 
@@ -86,18 +87,18 @@ Things you may want to cover:
 | purchase      | references  | null; false,foreign_key: true |
 
 ### Association
-
-- has_many :items, through: users
+- belongs_to :purchases
 
 ## purchasesテーブル
 
 | Colum   | Type       | Options                        |
 | ------- | ------     | ------------------------------ | 
-| item    | string     | null: false, foreign_key: true | 
+| item    | references | null: false, foreign_key: true | 
 | user    | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :users
+- has_many :address, through: items
 
 
