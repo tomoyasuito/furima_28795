@@ -43,7 +43,6 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :address
 - has_many :purchases
 
 ## itemsテーブル
@@ -61,19 +60,8 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :address, through: users
-- belongs_to :images
-- has_many :users
+- belongs_to :user
 
-## imagesテーブル
-| Colum     | Type   | Options     |
-| --------- | ------ | ----------- | 
-| image     | text   | null: false | 
-| item      | string | null: false |
-
-### Association
-
-- has_many :users
 
 ## addressテーブル
 
@@ -99,8 +87,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 - has_one :address
 
 
