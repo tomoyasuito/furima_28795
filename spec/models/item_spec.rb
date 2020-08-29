@@ -11,7 +11,6 @@ RSpec.describe "商品出品機能", type: :model do
     end
 
     it "image,name,postage_id,area_id,category_id,status_id,price,sipping_chages_id,infoが存在すれば出品できる" do
-      #binding.pry
       expect(@item).to be_valid
     end
 
@@ -79,6 +78,36 @@ RSpec.describe "商品出品機能", type: :model do
       @item.price = "10000000"
       @item.valid?
       expect(@item.errors.full_messages).to include("Price must be less than 9999999")
+    end
+    
+    it "postage_idの選択が[1]では出品できないこと" do
+      @item.postage_id = "1"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Postage must be other than 1")
+    end
+
+    it "area_idの選択が[1]では出品できないこと" do
+      @item.area_id = "1"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Area must be other than 1")
+    end
+
+    it "category_idの選択が[1]では出品できないこと" do
+      @item.category_id = "1"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Category must be other than 1")
+    end
+
+    it "status_idの選択が[1]では出品できないこと" do
+      @item.status_id = "1"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Status must be other than 1")
+    end
+
+    it "shipping_chargesの選択が[1]では出品できないこと" do
+      @item.shipping_charges_id = "1"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Shipping charges must be other than 1")
     end
   end
 end
