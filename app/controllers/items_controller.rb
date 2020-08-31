@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @item = Item.all.order("created_at DESC")
+    @items = Item.all.order("created_at DESC")
   end
 
   def new
@@ -9,9 +9,12 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
-  def destoroy
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
   end
 
   def create
