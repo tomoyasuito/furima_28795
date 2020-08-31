@@ -1,10 +1,17 @@
 class ItemsController < ApplicationController
 
   def index
+    @item = Item.all.order("created_at DESC")
   end
 
   def new
     @item = Item.new
+  end
+
+  def show
+  end
+
+  def destoroy
   end
 
   def create
