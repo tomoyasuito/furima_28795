@@ -53,4 +53,8 @@ class ItemsController < ApplicationController
       redirect_to action: :index
     end
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
