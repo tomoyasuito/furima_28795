@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :area
   belongs_to :user
   has_one_attached :image
+  has_one :purchase
 
 
   #空の投稿を保存できないようにする

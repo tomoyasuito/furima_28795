@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, expect: [:index,:edit]
+  before_action :move_to_index, except: [:index,:edit]
   before_action :set_item, only: [:edit ,:update]
 
   def index
