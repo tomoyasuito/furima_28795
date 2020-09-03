@@ -1,3 +1,3 @@
 class Addrese < ApplicationRecord
-  belings_to :purchase
+  belongs_to :purchase
 end
