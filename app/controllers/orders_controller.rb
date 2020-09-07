@@ -13,6 +13,8 @@ class OrdersController < ApplicationController
        @purchase.save
        return redirect_to root_path
      else
+      @item = Item.find(params[:item_id])
+      @purchase
       render "index"
      end
   end
@@ -21,7 +23,6 @@ class OrdersController < ApplicationController
 
   def purchases_params
     params.permit(:post_code, :city, :prefecture_id, :building_name, :phone_number, :address, :purchase, :price).merge(user_id: current_user.id).merge(item_id: params[:item_id]).merge(token: params[:token])
-   #item: purchases_params[:item_id]
   end
   
   def pay_item
