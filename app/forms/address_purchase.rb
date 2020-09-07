@@ -15,5 +15,6 @@ class AddressPurchase
     validates :city
     validates :address
     validates :phone_number, length:{ minimum: 11 }
+    validates :token
   end
 end
