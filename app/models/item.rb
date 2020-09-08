@@ -21,5 +21,5 @@ class Item < ApplicationRecord
     validates      :price, format: {with: /\A[0-9]+\z/}  
   end
    #価格に範囲が¥300~¥9,999,999の間であること
-   validates      :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999 }
+   validates      :price, numericality: { only_integer: true, greater_than: 301, less_than: 9999999 }
 end
