@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   def index
+    if 
     @item = Item.find(params[:item_id])
     @purchase = AddressPurchase.new
   end
@@ -17,6 +19,7 @@ class OrdersController < ApplicationController
       @purchase
       render "index"
      end
+    end
   end
 
   private
@@ -27,7 +30,8 @@ class OrdersController < ApplicationController
   
   def pay_item
     @item = Item.find(params[:item_id])
-    Payjp.api_key = "sk_test_402b70b7b2ba2f0c988e5668" #テスト秘密鍵
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    #Payjp.api_key = "sk_test_402b70b7b2ba2f0c988e5668" #テスト秘密鍵
     Payjp::Charge.create(
       amount: @item.price,
       card: purchases_params[:token],
