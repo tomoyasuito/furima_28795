@@ -7,7 +7,6 @@ class User < ApplicationRecord
    has_many :purchases
 
    PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[\w-]{6,128}+\z/i
-  #  /\A(?=.*?[a-z])(?=.*?\d)[\w-]{6,128}+\z/i
    validates_format_of :password, with: PASSWORD_REGEX
 
   with_options presence: true do

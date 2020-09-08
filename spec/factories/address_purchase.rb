@@ -8,9 +8,5 @@ FactoryBot.define do
     address                {"1-1"}
     purchase_id            { 2 }
     token                  {"123456"}
-    #number                 {"4242424242424242"}
-    #exp_month              {"11"}
-    #exp_year               {"26"}
-    #cvc                    {"123"}
   end
 end
