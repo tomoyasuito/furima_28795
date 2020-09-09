@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :move_to_index, only: :index
   def index
-    if 
     @item = Item.find(params[:item_id])
     @purchase = AddressPurchase.new
   end
@@ -17,7 +17,6 @@ class OrdersController < ApplicationController
       @purchase
       render "index"
      end
-    end
   end
 
   private
@@ -35,4 +34,11 @@ class OrdersController < ApplicationController
       currency:'jpy'
     )
   end
+
+  def move_to_index
+    @item = Item.find(params[:item_id])
+     if @item.purchase != nil || current_user.id != @item.user_id 
+        redirect_to root_path
+     end
+   end
 end
